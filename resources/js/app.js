@@ -19,7 +19,10 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('v-header', require('./components/Header.vue').default);
+Vue.component('v-header', require('./components/header.vue').default);
+Vue.component('v-footer', require('./components/footer.vue').default);
+
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,9 +33,14 @@ Vue.component('v-header', require('./components/Header.vue').default);
 import router from "./router";
 import moment from 'moment';
 
+import Vuetify from 'vuetify';
+import 'vuetify/dist/vuetify.min.css'
+Vue.use(Vuetify);
+
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    vuetify: new Vuetify()
 });
 
 Vue.filter('formatDate', function (value) {

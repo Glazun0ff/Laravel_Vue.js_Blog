@@ -3,7 +3,7 @@
         <div class="uk-grid-small uk-card-default uk-card-hover uk-card-body uk-height-1-1">
             <div class="uk-card-header">
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-expand">
+                    <div class="uk-width-auto">
                         <h3 class="uk-card-title">{{ title | truncate(55) }}</h3>
                         <p class="uk-text-meta">
                             <time datetime="2016-04-01T19:00">{{ date | formatDate }}</time>

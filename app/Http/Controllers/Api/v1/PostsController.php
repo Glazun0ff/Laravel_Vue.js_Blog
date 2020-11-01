@@ -14,7 +14,9 @@ class PostsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return Post::all();
+        //return Post::all();
+        return Post::latest()->paginate(4);
+        //return Post::orderBy('created_at', 'DESC')->paginate(4);
     }
 
     /**
@@ -74,7 +76,6 @@ class PostsController extends Controller {
                 "message" => "Post not found"
             ])->setStatusCode(404);
         }
-
         return $post;
     }
 

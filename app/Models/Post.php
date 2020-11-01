@@ -9,5 +9,8 @@ use App\Casts\CreateAtCast;
 class Post extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'body'];
+    protected $fillable = [
+        'title',
+        'body'
+    ];
 }

@@ -4,6 +4,7 @@
         <div v-else-if="!loading && !not_found">
             <h1>{{ post.title }} <span class="uk-badge">{{ post.created_at | formatDate }}</span></h1>
             <p class="uk-text-lead">{{ post.body }}</p>
+            <!--<button class="uk-button uk-button-danger">Редактировать</button>-->
         </div>
         <div uk-alert v-if="not_found">
             <a class="uk-alert-close" uk-close></a>
@@ -13,7 +14,7 @@
 </template>
 
 <script>
-    import Spin from "../components/Spin";
+    import Spin from "../components/spin";
     import axios from "axios";
 
     export default {
@@ -30,16 +31,17 @@
         },
         methods: {
             loadPost(id) {
-                axios.get('/api/posts/' + id)
-                .then(res => {
-                    this.post = res.data;
-                    setTimeout(()=> {
-                        this.loading = false;
-                    }, 500);
-                })
-                .catch(err => {
-                    this.not_found = true;
-                })
+                axios
+                    .get('/api/posts/' + id)
+                    .then(res => {
+                        this.post = res.data;
+                        setTimeout(() => {
+                            this.loading = false;
+                        }, 500);
+                    })
+                    .catch(err => {
+                        this.not_found = true;
+                    })
             }
         }
     }
